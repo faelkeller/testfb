@@ -3,19 +3,16 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <title>Cadastro de Produtos e Pedidos</title>
-
     <!-- Fonts -->
     <link href="{{ URL::asset('css/app.css') }}" rel="stylesheet">
-
 </head>
 <body>
-<div class="flex-center position-ref full-height">
-    <div class="content">
-        @yield('content')
+    <div class="flex-center position-ref full-height">
+        <div class="content">
+            @yield('content')
+        </div>
     </div>
-</div>
-<script type="text/javascript" src="{{ URL::asset('js/app.js') }}"></script>
+    <script type="text/javascript" src="{{ URL::asset('js/app.js') }}"></script>
 </body>
 </html>
