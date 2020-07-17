@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Services\ProductService;
+use App\Http\Requests\StoreProduct;
 
 class ProductController extends Controller
 {
@@ -15,7 +16,7 @@ class ProductController extends Controller
         return view('products.create');
     }
 
-    public function store(Request $request){
+    public function store(StoreProduct $request){
 
         $data = $request->all();
 
