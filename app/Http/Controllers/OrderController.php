@@ -28,5 +28,16 @@ class OrderController extends Controller
         return ($product) ? response()->json($product) : response()->json('Error attach product in order', 400);
     }
 
+    public function finish($orderId){
+        if ($orderId == ""){
+            response()->json('Error finish order', 400);
+        }
+
+        $order = OrderService::finish($orderId);
+
+        return response()->json('Order finished');
+
+    }
+
 
 }

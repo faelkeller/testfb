@@ -8,7 +8,7 @@ use App\Product;
 class OrderService
 {
     public static function getAll(){
-        $orders = Order::orderBy("id", "desc")->get();
+        $orders = Order::orderBy("id", "desc")->limit(10)->get();
 
         $arr = [];
 
@@ -34,6 +34,12 @@ class OrderService
         $product = Product::findOrFail($productId);
         $order->products()->attach([$productId]);
         return $product;
+    }
+
+    public static function finish($orderId){
+        $order = Order::findOrFail($orderId);
+        $order->order_status_id = 2;
+        $order->save();
     }
 }
 

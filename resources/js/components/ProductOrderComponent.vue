@@ -28,6 +28,7 @@
                 let productId = id;
                 let orderId = this.orderId;
                 this.loading = true;
+                this.$emit("eventLoading");
                 this.axios
                     .post('/api/orders/'+orderId+'/products/'+productId)
                     .then(response => {

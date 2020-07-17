@@ -23,3 +23,4 @@ Route::post('/products', "ProductController@store");
 Route::get('/orders', "OrderController@index");
 Route::post('/orders', "OrderController@store");
 Route::post('/orders/{orderId}/products/{productId}', "OrderController@storeProduct");
+Route::patch('/orders/{orderId}/finish', 'OrderController@finish');
