@@ -6,7 +6,7 @@
             </div>
             <div class="card-body">
 
-                <router-link to="/order/add">
+                <router-link to="/product/add">
                     <button type="button" class="btn btn-success btn-app">Add Product</button>
                 </router-link>
 
