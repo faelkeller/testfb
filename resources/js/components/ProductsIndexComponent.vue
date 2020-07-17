@@ -1,5 +1,13 @@
 <template>
     <div class="container">
+        <div class="title m-b-md">
+            Products List
+        </div>
+
+        <a href="/products/add">
+            <button type="button" style="margin-bottom: 10px; float: left;" class="btn btn-success">+ Add Product</button>
+        </a>
+
         <table class="table table-striped">
             <thead>
             <tr>

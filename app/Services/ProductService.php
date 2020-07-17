@@ -7,7 +7,7 @@ use App\Product;
 class ProductService
 {
     public static function getAll(){
-        $products = Product::all();
+        $products = Product::orderBy("id", "desc")->get();
         $productsArray = [];
         foreach ($products as $product){
             $productsArray[] = (object)[

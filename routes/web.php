@@ -18,3 +18,5 @@ Route::get('/', function () {
 });
 
 Route::get('/products', "ProductController@index");
+
+Route::get('/products/add', "ProductController@create");
