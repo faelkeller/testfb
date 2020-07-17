@@ -42,7 +42,11 @@ html, body {
 }
 
 .title {
-    font-size: 84px;
+    font-size: 40px;
+}
+
+.links{
+    margin-bottom: 20px;
 }
 
 .links > a {
@@ -57,5 +61,19 @@ html, body {
 
 .m-b-md {
     margin-bottom: 30px;
+}
+
+.card-app{
+    margin: 0 auto;
+    width: 80%;
+}
+
+.btn-app{
+    margin-bottom: 10px;
+    float: left;
+}
+
+.spinner-app{
+    margin: 0 auto;
 }
 

@@ -2,6 +2,6 @@
 
 @section("content")
     <div id="app">
-        <home-component url="{{ url("") }}"></home-component>
+        <home-component></home-component>
     </div>
 @stop

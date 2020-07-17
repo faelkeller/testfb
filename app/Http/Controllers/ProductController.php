@@ -8,12 +8,7 @@ use App\Services\ProductService;
 class ProductController extends Controller
 {
     public function index(){
-
-        $products = ProductService::getAll();
-
-        return view('products.index', [
-            "products" => $products
-        ]);
+        return ProductService::getAll();
     }
 
     public function create(){

@@ -7,17 +7,8 @@ use App\Product;
 class ProductService
 {
     public static function getAll(){
-        $products = Product::orderBy("id", "desc")->get();
-        $productsArray = [];
-        foreach ($products as $product){
-            $productsArray[] = (object)[
-                "id" => $product->id,
-                "name" => $product->name,
-                "price" => $product->price,
-                "weight" => $product->weight,
-            ];
-        }
-        return json_encode($productsArray);
+        $products = Product::all()->toArray();
+        return array_reverse($products);
     }
 }
 
