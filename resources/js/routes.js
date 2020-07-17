@@ -1,6 +1,7 @@
 import ProductsIndex from './components/ProductsIndexComponent.vue';
-import ProductCreate from './components/ProductsCreateComponent.vue';
+import ProductsCreate from './components/ProductsCreateComponent.vue';
 import OrdersIndex from './components/OrdersIndexComponent.vue';
+import OrdersCreate from './components/OrdersCreateComponent.vue';
 
 export const routes = [
     {
@@ -11,11 +12,16 @@ export const routes = [
     {
         name: 'productadd',
         path: '/product/add',
-        component: ProductCreate
+        component: ProductsCreate
     },
     {
         name: 'ordersindex',
         path: '/orders',
         component: OrdersIndex
+    },
+    {
+        name: 'orderadd',
+        path: '/order/add',
+        component: OrdersCreate
     }
 ];
