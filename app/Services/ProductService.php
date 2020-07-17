@@ -10,5 +10,10 @@ class ProductService
         $products = Product::all()->toArray();
         return array_reverse($products);
     }
+    public static function store($data){
+        $product = new Product($data);
+        $product->save();
+        return ($product->id) ? true : false;
+    }
 }
 

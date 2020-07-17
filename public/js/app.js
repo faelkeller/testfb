@@ -1964,7 +1964,36 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-/* harmony default export */ __webpack_exports__["default"] = ({});
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      product: {},
+      loading: false
+    };
+  },
+  methods: {
+    addProduct: function addProduct() {
+      var _this = this;
+
+      this.loading = true;
+      this.axios.post('/api/products', this.product).then(function (response) {
+        return _this.$router.push({
+          name: 'productsindex'
+        }) // console.log(response.data)
+        ;
+      })["catch"](function (error) {
+        return console.log(error);
+      })["finally"](function () {
+        return _this.loading = false;
+      });
+    }
+  }
+});
 
 /***/ }),
 
@@ -37691,27 +37720,47 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "card card-app" }, [
-        _c("div", { staticClass: "card-header" }, [
-          _vm._v("\n            Add Product\n        ")
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "card-body" }, [
-          _c("form", { attrs: { action: "products", method: "post" } }, [
+  return _c("div", { staticClass: "row" }, [
+    _c("div", { staticClass: "card card-app" }, [
+      _c("div", { staticClass: "card-header" }, [
+        _vm._v("\n            Add Product\n        ")
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "card-body" }, [
+        _c(
+          "form",
+          {
+            on: {
+              submit: function($event) {
+                $event.preventDefault()
+                return _vm.addProduct($event)
+              }
+            }
+          },
+          [
             _c("div", { staticClass: "form-group" }, [
               _c("label", { attrs: { for: "name" } }, [_vm._v("Name")]),
               _vm._v(" "),
               _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.product.name,
+                    expression: "product.name"
+                  }
+                ],
                 staticClass: "form-control",
-                attrs: { type: "text", id: "name", name: "name" }
+                attrs: { type: "text", id: "name", name: "name" },
+                domProps: { value: _vm.product.name },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.product, "name", $event.target.value)
+                  }
+                }
               })
             ]),
             _vm._v(" "),
@@ -37719,8 +37768,25 @@ var staticRenderFns = [
               _c("label", { attrs: { for: "price" } }, [_vm._v("Price")]),
               _vm._v(" "),
               _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.product.price,
+                    expression: "product.price"
+                  }
+                ],
                 staticClass: "form-control",
-                attrs: { type: "text", id: "price", name: "price" }
+                attrs: { type: "text", id: "price", name: "price" },
+                domProps: { value: _vm.product.price },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.product, "price", $event.target.value)
+                  }
+                }
               }),
               _vm._v(" "),
               _c(
@@ -37737,8 +37803,25 @@ var staticRenderFns = [
               _c("label", { attrs: { for: "weight" } }, [_vm._v("Weight")]),
               _vm._v(" "),
               _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.product.weight,
+                    expression: "product.weight"
+                  }
+                ],
                 staticClass: "form-control",
-                attrs: { type: "text", id: "weight", name: "weight" }
+                attrs: { type: "text", id: "weight", name: "weight" },
+                domProps: { value: _vm.product.weight },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.product, "weight", $event.target.value)
+                  }
+                }
               }),
               _vm._v(" "),
               _c(
@@ -37751,15 +37834,29 @@ var staticRenderFns = [
               )
             ]),
             _vm._v(" "),
-            _c(
-              "button",
-              { staticClass: "btn btn-primary", attrs: { type: "button" } },
-              [_vm._v("Save")]
-            )
-          ])
-        ])
+            _vm.loading
+              ? _c("div", { staticClass: "row" }, [_vm._m(0)])
+              : _c(
+                  "button",
+                  { staticClass: "btn btn-primary", attrs: { type: "submit" } },
+                  [_vm._v("Save")]
+                )
+          ]
+        )
       ])
     ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "spinner-border spinner-app", attrs: { role: "status" } },
+      [_c("span", { staticClass: "sr-only" }, [_vm._v("Loading...")])]
+    )
   }
 ]
 render._withStripped = true
